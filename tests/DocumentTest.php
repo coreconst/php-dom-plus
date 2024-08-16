@@ -5,7 +5,7 @@ namespace tests;
 use PhpDomPlus\Document;
 use PHPUnit\Framework\TestCase;
 
-class DocumentTest  extends TestCase
+class DocumentTest extends TestCase
 {
     /** @var Document */
     protected $document;
@@ -13,7 +13,7 @@ class DocumentTest  extends TestCase
     protected function setUp(): void
     {
         $this->document = new Document();
-        $this->document->loadHTML('<html><body><div id="test" class="example">content</div></body></html>');
+        $this->document->loadHTML('<html><body><div id="test" class="example">content1</div><div class="example">content2</div></body></html>');
     }
 
     public function testGetElementsByClassNameReturnsElement(): void
@@ -28,6 +28,12 @@ class DocumentTest  extends TestCase
     {
         $element = $this->document->getElementsByClassName('non-existent')->item(0);
         $this->assertNull($element);
+    }
+
+    public function testGetTextContentOfElements(): void
+    {
+        $element = $this->document->getElementsByClassName('example');
+        $this->assertEquals(['content1', 'content2'], $element->textContents());
     }
 
 }

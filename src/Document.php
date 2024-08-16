@@ -2,10 +2,12 @@
 
 namespace PhpDomPlus;
 
-use DOMXPath;
+use PhpDomPlus\Traits\HasElements;
 
 class Document extends \DOMDocument
 {
+    use HasElements;
+
     protected ?string $url = null;
 
     public function __construct() {
@@ -18,12 +20,6 @@ class Document extends \DOMDocument
         $client = new HttpClient();
         $page = $client->getPage('http://example.com');
         $this->loadHTML($page);
-    }
-
-    public function getElementsByClassName(string $classname): \DOMNodeList
-    {
-        $xpath = new DOMXPath($this);
-        return $xpath->query("//*[contains(concat(' ', normalize-space(@class), ' '), ' $classname ')]");
     }
 
 }
