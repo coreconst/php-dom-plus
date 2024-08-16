@@ -32,8 +32,8 @@ class DocumentTest extends TestCase
 
     public function testGetTextContentOfElements(): void
     {
-        $element = $this->document->getElementsByClassName('example');
-        $this->assertEquals(['content1', 'content2'], $element->textContents());
+        $elements = $this->document->getElementsByClassName('example');
+        $this->assertEquals(['content1', 'content2'], $elements->textContents());
     }
 
 }

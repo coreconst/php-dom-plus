@@ -8,12 +8,13 @@ class NodeList
 {
     private \DOMNodeList $domNodeList;
 
+    public $length;
+
     public function __construct(\DOMNodeList $domNodeList)
     {
         $this->domNodeList = $domNodeList;
+        $this->length = $this->domNodeList->length;
     }
-
-    public function length(): int { return $this->domNodeList->length; }
 
     public function count(): int { return $this->domNodeList->count(); }
 
@@ -46,7 +47,7 @@ class NodeList
 
     public function last(): ?\DOMNode
     {
-        return $this->item($this->length() - 1);
+        return $this->item($this->length - 1);
     }
 
 }
