@@ -2,14 +2,22 @@
     "name": "coreconst/php-dom-plus",
     "description": "This library extends DOMDocument and adds methods similar to those found in native JavaScript.",
     "type": "library",
+    "keywords": [
+        "php",
+        "scraper",
+        "parser",
+        "web",
+        "dom",
+        "document"
+    ],
     "autoload": {
         "psr-4": {
-            "Coreconst\\PhpDomPlus\\": "src/"
+            "PhpDomPlus\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Coreconst\\Tests\\": "tests/"
+            "PhpDomPlus\\Tests\\": "tests/"
         }
     },
     "authors": [
@@ -19,10 +27,10 @@
         }
     ],
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.9"
     },
     "require-dev": {
         "phpunit/phpunit": "^11.0.1"
     }
 }
-
