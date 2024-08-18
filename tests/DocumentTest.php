@@ -36,4 +36,13 @@ class DocumentTest extends TestCase
         $this->assertEquals(['content1', 'content2'], $elements->textContents());
     }
 
+    public function testQuerySelectorAndQuerySelectorAllReturnsElement(): void
+    {
+        $div = $this->document->querySelector('#test');
+        $elements = $this->document->querySelectorAll('.example');
+
+        $this->assertEquals('content1', $div->nodeValue);
+        $this->assertEquals(['content1', 'content2'], $elements->textContents());
+    }
+
 }
