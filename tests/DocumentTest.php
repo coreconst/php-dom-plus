@@ -1,6 +1,6 @@
 <?php
 
-namespace tests;
+namespace PhpDomPlus\Tests;
 
 use PhpDomPlus\Document;
 use PHPUnit\Framework\TestCase;

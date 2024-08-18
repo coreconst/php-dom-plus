@@ -1,6 +1,6 @@
 <?php
 
-namespace tests;
+namespace PhpDomPlus\Tests;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\RequestException;
