@@ -22,7 +22,7 @@ class Document extends \DOMDocument
     public function loadHTMLByUrl($url): void
     {
         $client = new HttpClient();
-        $page = $client->getPage('http://example.com');
+        $page = $client->getPage($url);
         $this->loadHTML($page);
     }
 
