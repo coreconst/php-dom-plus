@@ -1,20 +1,13 @@
 <?php
 
-namespace PhpDomPlus\Tests;
+namespace PhpDomPlus\Tests\Dom;
 
-use PhpDomPlus\Document;
+use PhpDomPlus\Tests\DocumentCreate;
 use PHPUnit\Framework\TestCase;
 
 class DocumentTest extends TestCase
 {
-    /** @var Document */
-    protected $document;
-
-    protected function setUp(): void
-    {
-        $this->document = new Document();
-        $this->document->loadHTML('<html><body><div id="test" class="example">content1</div><div class="example">content2</div></body></html>');
-    }
+    use DocumentCreate;
 
     public function testGetElementsByClassNameReturnsElement(): void
     {
@@ -45,10 +38,4 @@ class DocumentTest extends TestCase
         $this->assertEquals(['content1', 'content2'], $elements->textContents());
     }
 
-    public function testElementGetInnerAndOuterHtml(): void
-    {
-        $element = $this->document->getElementsByClassName('example')->first();
-        $this->assertEquals('content1', $element->innerHTML);
-        $this->assertEquals('<div id="test" class="example">content1</div>', $element->outerHTML);
-    }
 }
