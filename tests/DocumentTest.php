@@ -45,4 +45,10 @@ class DocumentTest extends TestCase
         $this->assertEquals(['content1', 'content2'], $elements->textContents());
     }
 
+    public function testElementGetInnerAndOuterHtml(): void
+    {
+        $element = $this->document->getElementsByClassName('example')->first();
+        $this->assertEquals('content1', $element->innerHTML);
+        $this->assertEquals('<div id="test" class="example">content1</div>', $element->outerHTML);
+    }
 }
