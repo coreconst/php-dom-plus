@@ -19,7 +19,7 @@ composer require coreconst/php-dom-plus
 use PhpDomPlus\Document;
 
 $document = new Document();
-$document->loadHTMLByUrl('http://example.com');
+$document->loadHTML('example.html');
 
 $element = $document->querySelector('.example-class');
 echo $element->innerHTML;
