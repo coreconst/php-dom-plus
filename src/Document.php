@@ -2,6 +2,7 @@
 
 namespace PhpDomPlus;
 
+use PhpDomPlus\Service\HttpClient;
 use PhpDomPlus\Traits\HasElements;
 
 class Document extends \DOMDocument

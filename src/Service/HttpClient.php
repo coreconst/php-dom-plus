@@ -1,6 +1,6 @@
 <?php
 
-namespace PhpDomPlus;
+namespace PhpDomPlus\Service;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
