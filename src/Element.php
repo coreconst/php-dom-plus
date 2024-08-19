@@ -2,13 +2,18 @@
 
 namespace PhpDomPlus;
 
+use PhpDomPlus\Support\ClassList;
+
 class Element extends \DOMElement
 {
-    public function __get($name): ?string
+    private ?ClassList $classList = null;
+
+    public function __get($name): mixed
     {
         return match ($name) {
             'innerHTML' => $this->getInnerHTML(),
             'outerHTML' => $this->getOuterHTML(),
+            'classList' => $this->getClassList(),
             default => null
         };
     }
@@ -27,4 +32,11 @@ class Element extends \DOMElement
         return $this->ownerDocument->saveHTML($this);
     }
 
+    private function getClassList(): ClassList
+    {
+        if ($this->classList === null) {
+            $this->classList = new ClassList($this);
+        }
+        return $this->classList;
+    }
 }
