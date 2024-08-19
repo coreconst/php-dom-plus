@@ -13,6 +13,9 @@ class Document extends \DOMDocument
     public function __construct() {
         parent::__construct();
 
+        $this->registerNodeClass('DOMDocument', 'PhpDomPlus\Document');
+        $this->registerNodeClass('DOMElement', 'PhpDomPlus\Element');
+
     }
 
     public function loadHTMLByUrl($url): void
