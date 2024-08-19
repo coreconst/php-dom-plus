@@ -34,7 +34,7 @@ trait HasElements
         return $result->length > 0 ? $result->item(0) : null;
     }
 
-    public function querySelectorAll(string $selector): NodeList
+    public function querySelectorAll(string $selector): ?NodeList
     {
         $xpath = new DOMXPath($this);
         $xpathQuery = $this->convertCssSelectorToXPath($selector);
