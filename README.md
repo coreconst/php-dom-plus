@@ -8,6 +8,11 @@
 - **Enhanced Element Handling**: Adds functionality for handling class names with methods like `classList.add`, `classList.remove`, and `classList.toggle`.
 - **HTML Content Access**: Includes properties `innerHTML` and `outerHTML` for easily retrieving HTML content inside and around elements.
 
+## Installation
+```bash
+composer require coreconst/php-dom-plus
+```
+
 ## Usage
 
 ```php
