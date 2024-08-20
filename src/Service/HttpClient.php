@@ -9,6 +9,8 @@ class HttpClient
 {
     protected Client $client;
 
+    private ?GuzzleException $exception = null;
+
     public function __construct(Client $client = null) {
         $this->client = $client ?: new Client([
             'headers' => [
@@ -17,12 +19,20 @@ class HttpClient
         ]);
     }
 
-    /**
-     * @throws GuzzleException
-     */
-    public function getPage($url): string
+    public function getPage($url): string|null
     {
-        $page = $this->client->get($url);
-        return $page->getBody();
+        try {
+            $page = $this->client->get($url);
+            $this->exception = null;
+            return $page->getBody();
+        }catch (GuzzleException $exception) {
+            $this->exception = $exception;
+            return null;
+        }
+    }
+
+    public function getException(): ?GuzzleException
+    {
+        return $this->exception ?? null;
     }
 }
